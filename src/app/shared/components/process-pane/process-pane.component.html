@@ -2,16 +2,73 @@
   <!-- Header (blue upper part) -->
   <div class="process-pane-header">
     <h2 class="header-title">{{ headerTitle }}</h2>
+    <div class="header-subtitle">
+      השתלבות בשוק העבודה בשוק החרדי ועוד
+      <br>
+      טקסט כדי לתנים הרבה טקסט... קרא עוד
+    </div>
+    <div class="header-info">
+      אוניברסיטת תל-אביב | מספר מסמך: 101452
+    </div>
   </div>
 
-  <!-- Content (middle part) -->
+  <!-- Curved transition -->
+  <div class="curve-container">
+    <div class="curve-content">
+      <button class="continue-button">המשך בבקשה</button>
+    </div>
+  </div>
+
+  <!-- Content (middle part) with menu items -->
   <div class="process-pane-content">
+    <div class="menu-items">
+      <a [routerLink]="['/update-db/open-request']" class="menu-item">
+        <div class="icon-container">
+          <img src="assets/icons/document-icon.svg" alt="Document icon">
+        </div>
+        <div class="menu-text">
+          <h3>פתיחת הבקשה</h3>
+          <p>פרטי עיקרי הבקשה למחקר והעברתם לאישור</p>
+        </div>
+      </a>
+
+      <a [routerLink]="['/update-db/approval']" class="menu-item">
+        <div class="icon-container">
+          <img src="assets/icons/approval-icon.svg" alt="Approval icon">
+        </div>
+        <div class="menu-text">
+          <h3>הכנת הבקשה לאישור</h3>
+          <p>פרטי עיקרי הבקשה למחקר והעברתם לאישור</p>
+        </div>
+      </a>
+
+      <a [routerLink]="['/update-db/data-handling']" class="menu-item">
+        <div class="icon-container">
+          <img src="assets/icons/data-icon.svg" alt="Data icon">
+        </div>
+        <div class="menu-text">
+          <h3>טיפול בקבצי נתונים</h3>
+          <p>פרטי עיקרי הבקשה למחקר והעברתם לאישור</p>
+        </div>
+      </a>
+
+      <a [routerLink]="['/update-db/completion']" class="menu-item">
+        <div class="icon-container">
+          <img src="assets/icons/completion-icon.svg" alt="Completion icon">
+        </div>
+        <div class="menu-text">
+          <h3>אישור והשלמת הבקשה</h3>
+          <p>פרטי עיקרי הבקשה למחקר והעברתם לאישור</p>
+        </div>
+      </a>
+    </div>
   </div>
 
   <!-- Footer (with button) -->
   <div class="process-pane-footer">
-    <button class="action-button" (click)="onButtonClick()">
-      {{ buttonText }}
+    <button class="help-button" (click)="onButtonClick()">
+      <img src="assets/icons/help-icon.svg" alt="Help icon">
+      עזרה ומידע נוסף
     </button>
   </div>
 </div>
