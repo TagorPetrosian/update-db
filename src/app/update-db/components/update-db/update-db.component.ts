@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { UpdateDbService } from '../../update-db.service';
+import { ProcessPaneComponent } from '../../../shared/components/process-pane/process-pane.component';
 
 @Component({
   selector: 'app-update-db',
   templateUrl: './update-db.component.html',
-  styleUrls: ['./update-db.component.css']
+  styleUrls: ['./update-db.component.css'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, ProcessPaneComponent]
 })
 export class UpdateDbComponent implements OnInit {
   updateForm: FormGroup;
@@ -43,5 +48,9 @@ export class UpdateDbComponent implements OnInit {
         }
       );
     }
+  }
+
+  onButtonClick(): void {
+    console.log('Help button clicked');
   }
 }
