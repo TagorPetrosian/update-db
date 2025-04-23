@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './research-contact.component.html',
   styleUrls: ['./research-contact.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class ResearchContactComponent {
   // Contact information

@@ -6,40 +6,58 @@
     <button (click)="submitSuccess = false">העלאה נוספת</button>
   </div>
 
-  <form *ngIf="!submitSuccess" [formGroup]="codebookForm" (ngSubmit)="onSubmit()">
+  <form
+    *ngIf="!submitSuccess"
+    [formGroup]="codebookForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="form-group">
       <label for="codebookName">שם ספר הקודים</label>
-      <input type="text" id="codebookName" formControlName="codebookName">
-      <div *ngIf="codebookForm.get('codebookName')?.invalid && codebookForm.get('codebookName')?.touched" class="error-message">
+      <input type="text" id="codebookName" formControlName="codebookName" />
+      <div
+        *ngIf="
+          codebookForm.get('codebookName')?.invalid &&
+          codebookForm.get('codebookName')?.touched
+        "
+        class="error-message"
+      >
         שם ספר הקודים הוא שדה חובה
       </div>
     </div>
 
     <div class="form-group">
       <label for="version">גרסה</label>
-      <input type="text" id="version" formControlName="version">
-      <div *ngIf="codebookForm.get('version')?.invalid && codebookForm.get('version')?.touched" class="error-message">
+      <input type="text" id="version" formControlName="version" />
+      <div
+        *ngIf="
+          codebookForm.get('version')?.invalid &&
+          codebookForm.get('version')?.touched
+        "
+        class="error-message"
+      >
         גרסה היא שדה חובה
       </div>
     </div>
 
     <div class="form-group">
       <label for="description">תיאור</label>
-      <textarea id="description" formControlName="description" rows="4"></textarea>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="4"
+      ></textarea>
     </div>
 
     <div class="form-group">
       <label for="fileUpload">העלאת קובץ</label>
-      <input type="file" id="fileUpload" formControlName="fileUpload">
+      <input type="file" id="fileUpload" formControlName="fileUpload" />
     </div>
 
     <div class="form-actions">
       <button type="submit" [disabled]="submitting">
-        {{ submitting ? 'מעלה...' : 'העלאת ספר קודים' }}
+        {{ submitting ? "מעלה..." : "העלאת ספר קודים" }}
       </button>
-      <button type="button" (click)="codebookForm.reset()">
-        איפוס טופס
-      </button>
+      <button type="button" (click)="codebookForm.reset()">איפוס טופס</button>
     </div>
   </form>
 </div>

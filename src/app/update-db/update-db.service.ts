@@ -14,12 +14,12 @@ interface UpdateResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UpdateDbService {
   private apiUrl = '/api/database/update';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   updateDatabase(data: UpdateRequest): Observable<UpdateResponse> {
     return this.http.post<UpdateResponse>(this.apiUrl, data);

@@ -12,7 +12,14 @@ import { ResearchContactComponent } from '../../../shared/components/research-co
   templateUrl: './update-db.component.html',
   styleUrls: ['./update-db.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, ProcessPaneComponent, RequestHeaderComponent, ResearchContactComponent]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    ProcessPaneComponent,
+    RequestHeaderComponent,
+    ResearchContactComponent,
+  ],
 })
 export class UpdateDbComponent implements OnInit {
   updateForm: FormGroup;
@@ -21,16 +28,15 @@ export class UpdateDbComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private updateDbService: UpdateDbService
+    private updateDbService: UpdateDbService,
   ) {
     this.updateForm = this.fb.group({
       dbVersion: [''],
-      updateType: ['full']
+      updateType: ['full'],
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     if (this.updateForm.valid) {
@@ -40,14 +46,14 @@ export class UpdateDbComponent implements OnInit {
       const formData = this.updateForm.value;
 
       this.updateDbService.updateDatabase(formData).subscribe(
-        response => {
+        (response) => {
           this.updateStatus = 'Database updated successfully!';
           this.isLoading = false;
         },
-        error => {
+        (error) => {
           this.updateStatus = 'Error updating database: ' + error.message;
           this.isLoading = false;
-        }
+        },
       );
     }
   }

@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './process-pane.component.html',
   styleUrls: ['./process-pane.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, RouterModule],
 })
 export class ProcessPaneComponent {
   @Input() headerTitle: string = 'בקשה להרחבת מסד נתונים';

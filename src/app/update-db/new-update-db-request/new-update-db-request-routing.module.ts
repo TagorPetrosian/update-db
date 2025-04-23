@@ -5,12 +5,12 @@ import { NewUpdateDbRequestComponent } from './components/new-update-db-request/
 const routes: Routes = [
   {
     path: '',
-    component: NewUpdateDbRequestComponent
-  }
+    component: NewUpdateDbRequestComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NewUpdateDbRequestRoutingModule { }
+export class NewUpdateDbRequestRoutingModule {}

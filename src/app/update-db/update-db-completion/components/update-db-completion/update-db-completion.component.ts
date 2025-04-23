@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UpdateDbCompletionService } from '../../update-db-completion.service';
 
 @Component({
@@ -8,7 +13,7 @@ import { UpdateDbCompletionService } from '../../update-db-completion.service';
   templateUrl: './update-db-completion.component.html',
   styleUrls: ['./update-db-completion.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class UpdateDbCompletionComponent implements OnInit {
   completionForm: FormGroup;
@@ -19,12 +24,12 @@ export class UpdateDbCompletionComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private completionService: UpdateDbCompletionService
+    private completionService: UpdateDbCompletionService,
   ) {
     this.completionForm = this.fb.group({
       comments: [''],
       confirmComplete: [false, Validators.requiredTrue],
-      confirmAccuracy: [false, Validators.requiredTrue]
+      confirmAccuracy: [false, Validators.requiredTrue],
     });
   }
 
@@ -34,17 +39,16 @@ export class UpdateDbCompletionComponent implements OnInit {
 
   loadRequestSummary(): void {
     this.loading = true;
-    this.completionService.getRequestSummary()
-      .subscribe({
-        next: (data) => {
-          this.requestSummary = data;
-          this.loading = false;
-        },
-        error: (error) => {
-          console.error('Error loading request summary:', error);
-          this.loading = false;
-        }
-      });
+    this.completionService.getRequestSummary().subscribe({
+      next: (data) => {
+        this.requestSummary = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error loading request summary:', error);
+        this.loading = false;
+      },
+    });
   }
 
   onSubmit(): void {
@@ -53,23 +57,22 @@ export class UpdateDbCompletionComponent implements OnInit {
 
       const submitData = {
         ...this.completionForm.value,
-        requestId: this.requestSummary.requestId
+        requestId: this.requestSummary.requestId,
       };
 
-      this.completionService.submitFinalRequest(submitData)
-        .subscribe({
-          next: (response) => {
-            this.submitting = false;
-            this.submitSuccess = true;
-          },
-          error: (error) => {
-            this.submitting = false;
-            console.error('Error submitting final request:', error);
-          }
-        });
+      this.completionService.submitFinalRequest(submitData).subscribe({
+        next: (response) => {
+          this.submitting = false;
+          this.submitSuccess = true;
+        },
+        error: (error) => {
+          this.submitting = false;
+          console.error('Error submitting final request:', error);
+        },
+      });
     } else {
       // Mark all fields as touched to trigger validation
-      Object.keys(this.completionForm.controls).forEach(key => {
+      Object.keys(this.completionForm.controls).forEach((key) => {
         this.completionForm.get(key)?.markAsTouched();
       });
     }

@@ -8,12 +8,7 @@ import { ProcessPaneComponent } from './components/process-pane/process-pane.com
   declarations: [
     // Shared components, directives, and pipes will go here
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   exports: [
     // Re-export modules that should be available to importing modules
     CommonModule,
@@ -21,6 +16,6 @@ import { ProcessPaneComponent } from './components/process-pane/process-pane.com
     ReactiveFormsModule,
     RouterModule,
     // Also export all declarations so they're available to any module that imports SharedModule
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

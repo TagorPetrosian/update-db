@@ -5,12 +5,12 @@ import { UpdateDbCodebookComponent } from './components/update-db-codebook/updat
 const routes: Routes = [
   {
     path: '',
-    component: UpdateDbCodebookComponent
-  }
+    component: UpdateDbCodebookComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class UpdateDbCodebookRoutingModule { }
+export class UpdateDbCodebookRoutingModule {}

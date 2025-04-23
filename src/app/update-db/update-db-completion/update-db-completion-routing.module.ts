@@ -5,12 +5,12 @@ import { UpdateDbCompletionComponent } from './components/update-db-completion/u
 const routes: Routes = [
   {
     path: '',
-    component: UpdateDbCompletionComponent
-  }
+    component: UpdateDbCompletionComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class UpdateDbCompletionRoutingModule { }
+export class UpdateDbCompletionRoutingModule {}

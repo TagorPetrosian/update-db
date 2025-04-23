@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './external-file-request.component.html',
   styleUrls: ['./external-file-request.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
 export class ExternalFileRequestComponent {
   @Input() title: string = 'בקשת קבצים חיצוניים';

@@ -3,11 +3,7 @@ import { UpdateDbCompletionRoutingModule } from './update-db-completion-routing.
 import { UpdateDbCompletionService } from './update-db-completion.service';
 
 @NgModule({
-  imports: [
-    UpdateDbCompletionRoutingModule
-  ],
-  providers: [
-    UpdateDbCompletionService
-  ]
+  imports: [UpdateDbCompletionRoutingModule],
+  providers: [UpdateDbCompletionService],
 })
-export class UpdateDbCompletionModule { }
+export class UpdateDbCompletionModule {}

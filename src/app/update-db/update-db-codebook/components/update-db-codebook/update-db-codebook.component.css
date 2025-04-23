@@ -59,7 +59,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -103,7 +103,7 @@ button:disabled {
 }
 
 .success-message button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;

@@ -3,11 +3,7 @@ import { UpdateDbDataHandlingRoutingModule } from './update-db-data-handling-rou
 import { UpdateDbDataHandlingService } from './update-db-data-handling.service';
 
 @NgModule({
-  imports: [
-    UpdateDbDataHandlingRoutingModule
-  ],
-  providers: [
-    UpdateDbDataHandlingService
-  ]
+  imports: [UpdateDbDataHandlingRoutingModule],
+  providers: [UpdateDbDataHandlingService],
 })
-export class UpdateDbDataHandlingModule { }
+export class UpdateDbDataHandlingModule {}

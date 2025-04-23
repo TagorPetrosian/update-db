@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewUpdateDbRequestService {
   // Empty service
-  constructor() { }
+  constructor() {}
 
   submitRequest(requestData: any): Observable<any> {
     // Mock implementation - replace with actual API call
@@ -14,7 +14,7 @@ export class NewUpdateDbRequestService {
     return of({
       success: true,
       requestId: 'REQ-' + Date.now(),
-      message: 'Request submitted successfully'
+      message: 'Request submitted successfully',
     });
   }
 }

@@ -1,6 +1,4 @@
 <div class="update-db-container">
-
-
   <!-- Main Content Area -->
   <div class="main-content-wrapper">
     <!-- Process Pane Container (25% width) - Right side in RTL layout -->
@@ -8,7 +6,8 @@
       <app-process-pane
         headerTitle="בקשה להרחבת מסד נתונים"
         buttonText="עזרה ומידע נוסף"
-        (buttonClick)="onButtonClick()">
+        (buttonClick)="onButtonClick()"
+      >
       </app-process-pane>
     </div>
 
@@ -18,7 +17,8 @@
         <app-request-header
           title="פתיחת הבקשה"
           subtitle="פירוט עיקרי הבקשה למחקר והעברתם לאישור"
-          alertText="יש למלא את פרטי הבקשה להרחבת מסד לאישור">
+          alertText="יש למלא את פרטי הבקשה להרחבת מסד לאישור"
+        >
         </app-request-header>
         <router-outlet></router-outlet>
       </div>
@@ -28,6 +28,5 @@
         <app-research-contact></app-research-contact>
       </div>
     </div>
-
   </div>
 </div>

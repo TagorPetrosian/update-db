@@ -2,26 +2,46 @@
   <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
     <div class="form-section">
       <h3>בחירת השינויים הרצויים</h3>
-      <p class="section-description">יש לבחור את השינויים שנדרצה לבצע במחקר, ניתן לבצע בחירה מרובה.</p>
+      <p class="section-description">
+        יש לבחור את השינויים שנדרצה לבצע במחקר, ניתן לבצע בחירה מרובה.
+      </p>
 
       <div class="checkbox-group">
         <div class="checkbox-item">
-          <input type="checkbox" id="updateNames" formControlName="updateNames">
+          <input
+            type="checkbox"
+            id="updateNames"
+            formControlName="updateNames"
+          />
           <label for="updateNames">עדכון שמות לקבצים הקיימים במחקר</label>
         </div>
 
         <div class="checkbox-item">
-          <input type="checkbox" id="updateFields" formControlName="updateFields">
+          <input
+            type="checkbox"
+            id="updateFields"
+            formControlName="updateFields"
+          />
           <label for="updateFields">הוספת שדות לקבצים הקיימים במחקר</label>
         </div>
 
         <div class="checkbox-item">
-          <input type="checkbox" id="addExternalData" formControlName="addExternalData">
-          <label for="addExternalData">הוספת קבצי נתונים חיצוניים או קבצים הנמצאים בלשכה</label>
+          <input
+            type="checkbox"
+            id="addExternalData"
+            formControlName="addExternalData"
+          />
+          <label for="addExternalData"
+            >הוספת קבצי נתונים חיצוניים או קבצים הנמצאים בלשכה</label
+          >
         </div>
 
         <div class="checkbox-item">
-          <input type="checkbox" id="updatePopulation" formControlName="updatePopulation">
+          <input
+            type="checkbox"
+            id="updatePopulation"
+            formControlName="updatePopulation"
+          />
           <label for="updatePopulation">עדכון אוכלוסיית המחקר</label>
         </div>
       </div>
@@ -49,13 +69,13 @@
       </div>
     </div> -->
     <app-external-file-request
-  title="בקשה להוספת קבצים"
-  description="יש לפתוח הוספת בקשה לקובץ ולמלא את הפרטים בהתאם"
-  [required]="false"
-  [showRadioOptions]="false"
-  [showCheckbox]="true"
-    [disableCheckbox]="true"
-  checkboxLabel="הוספת קבצים הנמצאים ברשותי"
+      title="בקשה להוספת קבצים"
+      description="יש לפתוח הוספת בקשה לקובץ ולמלא את הפרטים בהתאם"
+      [required]="false"
+      [showRadioOptions]="false"
+      [showCheckbox]="true"
+      [disableCheckbox]="true"
+      checkboxLabel="הוספת קבצים הנמצאים ברשותי"
       [showActionButtons]="true"
       [showPrimaryButton]="true"
       primaryButtonText="הוספת בקשה נוספת"
@@ -64,24 +84,27 @@
       secondaryButtonText="מספר הדרכים באוכלוסיה הכללית"
       secondaryButtonIcon="📄"
       (primaryButtonClick)="onAddRequestClick()"
-      (secondaryButtonClick)="onViewPopulationDataClick()">
+      (secondaryButtonClick)="onViewPopulationDataClick()"
+    >
     </app-external-file-request>
 
     <div class="form-section">
       <h3>פירוט וסיבת הבקשה</h3>
       <div class="form-group">
-        <textarea formControlName="requestDetails" rows="5" placeholder="הוספה של תוכן לדוגמה"></textarea>
+        <textarea
+          formControlName="requestDetails"
+          rows="5"
+          placeholder="הוספה של תוכן לדוגמה"
+        ></textarea>
         <div class="char-count">0/200</div>
       </div>
     </div>
 
     <div class="form-actions">
       <button type="submit" class="submit-button" [disabled]="isSubmitting">
-        {{ isSubmitting ? 'שולח בקשה...' : 'הגש בקשה' }}
+        {{ isSubmitting ? "שולח בקשה..." : "הגש בקשה" }}
       </button>
       <button type="button" class="cancel-button">שמור כטיוטה</button>
     </div>
   </form>
 </div>
-
-

@@ -3,11 +3,7 @@ import { UpdateDbCodebookRoutingModule } from './update-db-codebook-routing.modu
 import { UpdateDbCodebookService } from './update-db-codebook.service';
 
 @NgModule({
-  imports: [
-    UpdateDbCodebookRoutingModule
-  ],
-  providers: [
-    UpdateDbCodebookService
-  ]
+  imports: [UpdateDbCodebookRoutingModule],
+  providers: [UpdateDbCodebookService],
 })
-export class UpdateDbCodebookModule { }
+export class UpdateDbCodebookModule {}

@@ -9,7 +9,7 @@ import { ExternalFileRequestComponent } from 'src/app/shared/components/external
   templateUrl: './new-update-db-request.component.html',
   styleUrls: ['./new-update-db-request.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ExternalFileRequestComponent]
+  imports: [CommonModule, ReactiveFormsModule, ExternalFileRequestComponent],
 })
 export class NewUpdateDbRequestComponent implements OnInit {
   requestForm: FormGroup;
@@ -17,14 +17,14 @@ export class NewUpdateDbRequestComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private requestService: NewUpdateDbRequestService
+    private requestService: NewUpdateDbRequestService,
   ) {
     this.requestForm = this.fb.group({
       updateNames: [false],
       updateFields: [false],
       addExternalData: [false],
       updatePopulation: [false],
-      requestDetails: ['']
+      requestDetails: [''],
     });
   }
 
@@ -36,19 +36,18 @@ export class NewUpdateDbRequestComponent implements OnInit {
     if (this.requestForm.valid) {
       this.isSubmitting = true;
 
-      this.requestService.submitRequest(this.requestForm.value)
-        .subscribe({
-          next: (response) => {
-            this.isSubmitting = false;
-            console.log('Request submitted successfully', response);
-            // Handle success (e.g., show success message, navigate to next step)
-          },
-          error: (error) => {
-            this.isSubmitting = false;
-            console.error('Error submitting request', error);
-            // Handle error
-          }
-        });
+      this.requestService.submitRequest(this.requestForm.value).subscribe({
+        next: (response) => {
+          this.isSubmitting = false;
+          console.log('Request submitted successfully', response);
+          // Handle success (e.g., show success message, navigate to next step)
+        },
+        error: (error) => {
+          this.isSubmitting = false;
+          console.error('Error submitting request', error);
+          // Handle error
+        },
+      });
     }
   }
 

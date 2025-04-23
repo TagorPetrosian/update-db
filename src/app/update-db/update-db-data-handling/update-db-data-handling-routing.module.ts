@@ -5,12 +5,12 @@ import { UpdateDbDataHandlingComponent } from './components/update-db-data-handl
 const routes: Routes = [
   {
     path: '',
-    component: UpdateDbDataHandlingComponent
-  }
+    component: UpdateDbDataHandlingComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class UpdateDbDataHandlingRoutingModule { }
+export class UpdateDbDataHandlingRoutingModule {}

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UpdateDbDataHandlingService {
-  constructor() { }
+  constructor() {}
 
   uploadDataFile(data: any): Observable<any> {
     // Mock implementation - replace with actual API call

@@ -4,12 +4,7 @@ import { UpdateDbService } from './update-db.service';
 import { NewUpdateDbRequestModule } from './new-update-db-request/new-update-db-request.module';
 
 @NgModule({
-  imports: [
-    UpdateDbRoutingModule,
-    NewUpdateDbRequestModule
-  ],
-  providers: [
-    UpdateDbService
-  ]
+  imports: [UpdateDbRoutingModule, NewUpdateDbRequestModule],
+  providers: [UpdateDbService],
 })
-export class UpdateDbModule { }
+export class UpdateDbModule {}

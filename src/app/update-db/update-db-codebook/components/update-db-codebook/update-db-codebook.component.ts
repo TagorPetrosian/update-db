@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UpdateDbCodebookService } from '../../update-db-codebook.service';
 
 @Component({
@@ -8,7 +13,7 @@ import { UpdateDbCodebookService } from '../../update-db-codebook.service';
   templateUrl: './update-db-codebook.component.html',
   styleUrls: ['./update-db-codebook.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class UpdateDbCodebookComponent {
   codebookForm: FormGroup;
@@ -17,13 +22,13 @@ export class UpdateDbCodebookComponent {
 
   constructor(
     private fb: FormBuilder,
-    private codebookService: UpdateDbCodebookService
+    private codebookService: UpdateDbCodebookService,
   ) {
     this.codebookForm = this.fb.group({
       codebookName: ['', Validators.required],
       version: ['', Validators.required],
       description: [''],
-      fileUpload: ['']
+      fileUpload: [''],
     });
   }
 
@@ -31,21 +36,20 @@ export class UpdateDbCodebookComponent {
     if (this.codebookForm.valid) {
       this.submitting = true;
 
-      this.codebookService.submitCodebook(this.codebookForm.value)
-        .subscribe({
-          next: (response) => {
-            this.submitting = false;
-            this.submitSuccess = true;
-            this.codebookForm.reset();
-          },
-          error: (error) => {
-            this.submitting = false;
-            console.error('Error submitting codebook:', error);
-          }
-        });
+      this.codebookService.submitCodebook(this.codebookForm.value).subscribe({
+        next: (response) => {
+          this.submitting = false;
+          this.submitSuccess = true;
+          this.codebookForm.reset();
+        },
+        error: (error) => {
+          this.submitting = false;
+          console.error('Error submitting codebook:', error);
+        },
+      });
     } else {
       // Mark all fields as touched to trigger validation
-      Object.keys(this.codebookForm.controls).forEach(key => {
+      Object.keys(this.codebookForm.controls).forEach((key) => {
         this.codebookForm.get(key)?.markAsTouched();
       });
     }

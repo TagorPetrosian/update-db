@@ -60,7 +60,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -119,7 +119,7 @@ button:disabled {
 
 .success-message button,
 .info-message button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -130,9 +130,9 @@ button:disabled {
 }
 
 .info-message button {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .info-message button:hover {
-  background-color: #1976D2;
+  background-color: #1976d2;
 }
