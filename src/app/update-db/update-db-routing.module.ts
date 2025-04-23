@@ -11,18 +11,10 @@ const routes: Routes = [
         path: 'new-request',
         loadChildren: () => import('./new-update-db-request/new-update-db-request.module').then(m => m.NewUpdateDbRequestModule)
       },
-      // {
-      //   path: 'approval',
-      //   loadComponent: () => import('./components/approval/approval.component').then(c => c.ApprovalComponent)
-      // },
-      // {
-      //   path: 'data-handling',
-      //   loadComponent: () => import('./components/data-handling/data-handling.component').then(c => c.DataHandlingComponent)
-      // },
-      // {
-      //   path: 'completion',
-      //   loadComponent: () => import('./components/completion/completion.component').then(c => c.CompletionComponent)
-      // },
+      {
+        path: 'codebook',
+        loadChildren: () => import('./update-db-codebook/update-db-codebook.module').then(m => m.UpdateDbCodebookModule)
+      },
       {
         path: '',
         redirectTo: 'new-request',
