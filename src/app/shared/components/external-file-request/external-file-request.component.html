@@ -31,6 +31,7 @@
       id="addFiles"
       [disabled]="disableCheckbox"
       [(ngModel)]="addFilesChecked"
+      (change)="onCheckboxChange()"
     />
     <label for="addFiles">{{ checkboxLabel }}</label>
   </div>
