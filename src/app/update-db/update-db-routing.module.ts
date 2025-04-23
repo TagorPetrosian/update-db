@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UpdateDbComponent } from './update-db.component';
 
 const routes: Routes = [
-  { path: 'update-db', component: UpdateDbComponent }
+  { path: 'update-db-request', component: UpdateDbComponent }
 ];
 
 @NgModule({

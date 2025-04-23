@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/update-db', pathMatch: 'full' }
+  { path: '', redirectTo: '/update-db-request', pathMatch: 'full' }
 ];
 
 @NgModule({
