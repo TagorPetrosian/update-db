@@ -1,0 +1,28 @@
+<div class="update-db-container">
+  <h2>Database Update Tool</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="dbVersion">Database Version:</label>
+      <input type="text" id="dbVersion" formControlName="dbVersion" placeholder="Enter version (optional)">
+    </div>
+
+    <div class="form-group">
+      <label>Update Type:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" formControlName="updateType" value="full"> Full Update
+        </label>
+        <label>
+          <input type="radio" formControlName="updateType" value="incremental"> Incremental Update
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="isLoading">Update Database</button>
+  </form>
+
+  <div class="status-container" *ngIf="updateStatus">
+    <p [ngClass]="{'loading': isLoading}">{{ updateStatus }}</p>
+  </div>
+</div>

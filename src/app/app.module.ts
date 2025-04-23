@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateDbModule } from './update-db/update-db.module';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/update-db', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -11,8 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    UpdateDbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
