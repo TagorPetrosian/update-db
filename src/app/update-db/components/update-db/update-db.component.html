@@ -1,15 +1,28 @@
 <div class="update-db-container">
-  <div class="main-content">
-    <!-- Main content area (75% width) -->
-    <router-outlet></router-outlet>
-  </div>
+  <!-- Request Header Component -->
+  <app-request-header
+    title="פתיחת הבקשה"
+    subtitle="פירוט עיקרי הבקשה למחקר והעברתם לאישור"
+    alertText="יש למלא את פרטי הבקשה להרחבת מסד לאישור">
+  </app-request-header>
 
-  <!-- Process pane container (25% width) -->
-  <div class="process-pane-container">
-    <app-process-pane
-      headerTitle="בקשה להרחבת מסד נתונים"
-      buttonText="עזרה ומידע נוסף"
-      (buttonClick)="onButtonClick()">
-    </app-process-pane>
+  <!-- Main Content Area -->
+  <div class="main-content-wrapper">
+    <!-- Empty space (25% width) - Right side in RTL layout -->
+    <div class="empty-space"></div>
+
+    <!-- Main Content (50% width) - Center -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Process Pane Container (25% width) - Left side in RTL layout -->
+    <div class="process-pane-container">
+      <app-process-pane
+        headerTitle="בקשה להרחבת מסד נתונים"
+        buttonText="עזרה ומידע נוסף"
+        (buttonClick)="onButtonClick()">
+      </app-process-pane>
+    </div>
   </div>
 </div>

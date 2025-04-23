@@ -1,13 +1,84 @@
 <div class="request-form-container">
-  <h2>טופס בקשה חדשה</h2>
+  <div class="person-info-section">
+    <h3>אשת קשר למחקר</h3>
+    <div class="person-card">
+      <div class="person-name">רבקה חפץ</div>
+      <div class="person-details">
+        <div class="detail-row">
+          <span class="label">טלפון</span>
+          <span class="value">02-3456920</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">מייל</span>
+          <span class="value">rivkah&#64;cnj.co.il</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <form>
-    <!-- Form fields with RTL text alignment -->
-    <div class="form-group">
-      <label for="requestName">שם הבקשה</label>
-      <input type="text" id="requestName" name="requestName">
+  <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <h3>בחירת השינויים הרצויים</h3>
+      <p class="section-description">יש לבחור את השינויים שנדרצה לבצע במחקר, ניתן לבצע בחירה מרובה.</p>
+
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="updateNames" formControlName="updateNames">
+          <label for="updateNames">עדכון שמות לקבצים הקיימים במחקר</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="updateFields" formControlName="updateFields">
+          <label for="updateFields">הוספת שדות לקבצים הקיימים במחקר</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="addExternalData" formControlName="addExternalData">
+          <label for="addExternalData">הוספת קבצי נתונים חיצוניים או קבצים הנמצאים בלשכה</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="updatePopulation" formControlName="updatePopulation">
+          <label for="updatePopulation">עדכון אוכלוסיית המחקר</label>
+        </div>
+      </div>
     </div>
 
-    <!-- More form fields -->
+    <div class="form-section">
+      <h3>בקשה להוספת קבצים</h3>
+      <p class="section-description">יש לפתוח הוספת בקשה לקובץ ולמלא את הפרטים בהתאם</p>
+
+      <div class="checkbox-item disabled">
+        <input type="checkbox" id="addFiles" disabled>
+        <label for="addFiles">הוספת קבצים הנמצאים ברשותי</label>
+      </div>
+
+      <div class="action-buttons">
+        <button type="button" class="secondary-button">
+          <span class="button-icon">📄</span>
+          מספר הדרכים באוכלוסיה הכללית
+        </button>
+
+        <button type="button" class="primary-button">
+          <span class="button-icon">+</span>
+          הוספת בקשה נוספת
+        </button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>פירוט וסיבת הבקשה</h3>
+      <div class="form-group">
+        <textarea formControlName="requestDetails" rows="5" placeholder="הוספה של תוכן לדוגמה"></textarea>
+        <div class="char-count">0/200</div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-button" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'שולח בקשה...' : 'הגש בקשה' }}
+      </button>
+      <button type="button" class="cancel-button">שמור כטיוטה</button>
+    </div>
   </form>
 </div>

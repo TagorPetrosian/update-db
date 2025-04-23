@@ -1,0 +1,13 @@
+<div class="request-header">
+  <div class="header-content">
+    <h1 class="main-title">{{ title }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
+
+    <div *ngIf="showAlert && alertText" class="alert-box">
+      <span class="alert-icon">
+        <img src="assets/icons/info-icon.svg" alt="Info icon">
+      </span>
+      <span class="alert-text">{{ alertText }}</span>
+    </div>
+  </div>
+</div>

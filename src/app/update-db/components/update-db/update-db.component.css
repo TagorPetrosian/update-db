@@ -1,22 +1,39 @@
 .update-db-container {
   display: flex;
-  flex-direction: row-reverse;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+  display: flex;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
-  position: relative;
-  background-color: #f9f9f9;
+  padding: 0 20px;
+  direction: rtl; /* For RTL layout */
 }
 
+/* Empty space */
+.empty-space {
+  width: 25%;
+}
+
+/* Main Content (Router Outlet) */
 .main-content {
-  width: 75%;
-  height: 100%;
-  overflow-y: auto;
-  padding: 20px;
+  width: 50%;
+  padding: 0 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Process Pane Container */
 .process-pane-container {
   width: 25%;
-  height: 100%;
+  padding-right: 20px;
 }
 
 h2 {
@@ -87,8 +104,12 @@ button:disabled {
   color: #2196F3;
 }
 
-/* Media queries */
-@media (max-width: 768px) {
+/* Media Queries */
+@media (max-width: 1024px) {
+  .empty-space {
+    display: none;
+  }
+
   .main-content {
     width: 60%;
   }
@@ -98,14 +119,20 @@ button:disabled {
   }
 }
 
-@media (max-width: 576px) {
-  .update-db-container {
-    flex-direction: column-reverse;
+@media (max-width: 768px) {
+  .main-content-wrapper {
+    flex-direction: column;
+    padding: 0 15px;
   }
 
   .main-content,
   .process-pane-container {
     width: 100%;
+    padding: 0;
+  }
+
+  .main-content {
+    margin-bottom: 30px;
   }
 
   .process-pane-container {
