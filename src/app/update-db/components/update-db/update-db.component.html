@@ -1,6 +1,13 @@
-<app-process-pane
-  headerTitle="בקשה להרחבת מסד נתונים"
-  buttonText="עזרה ומידע נוסף"
-  (buttonClick)="onButtonClick()"></app-process-pane>
+<div class="update-db-container">
+  <div class="main-content">
+    <!-- Main content area (60% width) -->
+    <router-outlet></router-outlet>
+  </div>
 
-<router-outlet></router-outlet>
+  <!-- Process pane (40% width) -->
+  <app-process-pane
+    headerTitle="בקשה להרחבת מסד נתונים"
+    buttonText="עזרה ומידע נוסף"
+    (buttonClick)="onButtonClick()">
+  </app-process-pane>
+</div>
