@@ -10,7 +10,6 @@
   display: flex;
   flex: 1;
   max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
   padding: 0 20px;
   direction: rtl; /* For RTL layout */
@@ -24,11 +23,25 @@
 
 /* Main Content (Router Outlet) */
 .main-content {
-  width: 50%;
-  padding: 0 20px;
+  width: 75%;
+  display: flex;
+  padding: 0;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.main-content-container {
+  width: 67%;
+  padding: 20px 0; /* Remove horizontal padding, keep vertical */
+}
+
+/* Router outlet content styling */
+.main-content-container ::ng-deep router-outlet + * {
+  display: block;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 /* Empty space */
@@ -106,8 +119,9 @@ button:disabled {
 
 /* Left Sidebar */
 .left-sidebar {
-  width: 25%;
-  padding-right: 20px;
+  width: 33%;
+  padding: 20px 20px 20px 0; /* Top, Right, Bottom, Left - RTL layout so padding on left */
+  align-self: flex-start; /* Align with the top of main content */
 }
 
 /* Media Queries */
@@ -116,16 +130,16 @@ button:disabled {
     display: none;
   }
 
-  .left-sidebar {
-    width: 40%;
-  }
-
   .main-content {
     width: 60%;
   }
 
-  .process-pane-container {
-    width: 40%;
+  .main-content-container {
+    width: 100%;
+  }
+
+  .left-sidebar {
+    display: none;
   }
 }
 
@@ -142,8 +156,9 @@ button:disabled {
   }
 
   .left-sidebar {
-    order: 3; /* Move sidebar to the bottom on mobile */
+    order: 3;
     margin-top: 20px;
+    padding: 0 0 20px 0; /* Adjust padding for mobile view */
   }
 
   .process-pane-container {
@@ -152,6 +167,19 @@ button:disabled {
   }
 
   .main-content {
-    order: 1; /* Content at the top on mobile */
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .main-content-container {
+    padding: 0; /* Remove all padding on mobile */
+  }
+
+  .main-content-container ::ng-deep router-outlet + * {
+    margin-bottom: 0; /* Remove bottom margin on mobile */
+  }
+
+  .left-sidebar {
+    width: 100%;
   }
 }
