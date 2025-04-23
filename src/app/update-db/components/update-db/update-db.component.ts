@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UpdateDbService } from './update-db.service';
+import { UpdateDbService } from '../../update-db.service';
 
 @Component({
   selector: 'app-update-db',

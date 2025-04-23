@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NewUpdateDbRequestRoutingModule } from './new-update-db-request-routing.module';
 import { NewUpdateDbRequestService } from './new-update-db-request.service';
-import { NewUpdateDbRequestComponent } from './new-update-db-request.component';
+import { NewUpdateDbRequestComponent } from './components/new-update-db-request/new-update-db-request.component';
 
 @NgModule({
   declarations: [
