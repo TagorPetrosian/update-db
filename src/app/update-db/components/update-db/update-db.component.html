@@ -1,22 +1,14 @@
 <div class="update-db-container">
   <!-- Request Header Component -->
-  <app-request-header
+  <!-- <app-request-header
     title="פתיחת הבקשה"
     subtitle="פירוט עיקרי הבקשה למחקר והעברתם לאישור"
     alertText="יש למלא את פרטי הבקשה להרחבת מסד לאישור">
-  </app-request-header>
+  </app-request-header> -->
 
   <!-- Main Content Area -->
   <div class="main-content-wrapper">
-    <!-- Empty space (25% width) - Right side in RTL layout -->
-    <div class="empty-space"></div>
-
-    <!-- Main Content (50% width) - Center -->
-    <div class="main-content">
-      <router-outlet></router-outlet>
-    </div>
-
-    <!-- Process Pane Container (25% width) - Left side in RTL layout -->
+    <!-- Process Pane Container (25% width) - Right side in RTL layout -->
     <div class="process-pane-container">
       <app-process-pane
         headerTitle="בקשה להרחבת מסד נתונים"
@@ -24,5 +16,13 @@
         (buttonClick)="onButtonClick()">
       </app-process-pane>
     </div>
+
+    <!-- Main Content (50% width) - Center -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Empty space (25% width) - Left side in RTL layout -->
+    <div class="empty-space"></div>
   </div>
 </div>

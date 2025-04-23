@@ -16,9 +16,10 @@
   direction: rtl; /* For RTL layout */
 }
 
-/* Empty space */
-.empty-space {
+/* Process Pane Container - Now first in the flex order for RTL */
+.process-pane-container {
   width: 25%;
+  padding-left: 20px;
 }
 
 /* Main Content (Router Outlet) */
@@ -30,10 +31,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Process Pane Container */
-.process-pane-container {
+/* Empty space */
+.empty-space {
   width: 25%;
-  padding-right: 20px;
 }
 
 h2 {
@@ -122,21 +122,20 @@ button:disabled {
 @media (max-width: 768px) {
   .main-content-wrapper {
     flex-direction: column;
-    padding: 0 15px;
   }
 
-  .main-content,
-  .process-pane-container {
+  .process-pane-container,
+  .main-content {
     width: 100%;
     padding: 0;
   }
 
-  .main-content {
-    margin-bottom: 30px;
+  .process-pane-container {
+    order: 2; /* Move process pane below content on mobile */
+    margin-top: 20px;
   }
 
-  .process-pane-container {
-    height: auto;
-    min-height: 300px;
+  .main-content {
+    order: 1;
   }
 }
