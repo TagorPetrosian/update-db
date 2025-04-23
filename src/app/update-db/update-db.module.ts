@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
 import { UpdateDbComponent } from './update-db.component';
 import { UpdateDbService } from './update-db.service';
-
-const routes: Routes = [
-  { path: 'update-db', component: UpdateDbComponent }
-];
+import { UpdateDbRoutingModule } from './update-db-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +13,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    UpdateDbRoutingModule
   ],
   providers: [
     UpdateDbService
