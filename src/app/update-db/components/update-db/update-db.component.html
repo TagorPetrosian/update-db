@@ -1,13 +1,15 @@
 <div class="update-db-container">
   <div class="main-content">
-    <!-- Main content area (60% width) -->
+    <!-- Main content area (75% width) -->
     <router-outlet></router-outlet>
   </div>
 
-  <!-- Process pane (40% width) -->
-  <app-process-pane
-    headerTitle="בקשה להרחבת מסד נתונים"
-    buttonText="עזרה ומידע נוסף"
-    (buttonClick)="onButtonClick()">
-  </app-process-pane>
+  <!-- Process pane container (25% width) -->
+  <div class="process-pane-container">
+    <app-process-pane
+      headerTitle="בקשה להרחבת מסד נתונים"
+      buttonText="עזרה ומידע נוסף"
+      (buttonClick)="onButtonClick()">
+    </app-process-pane>
+  </div>
 </div>

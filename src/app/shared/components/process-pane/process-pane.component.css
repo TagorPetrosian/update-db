@@ -1,13 +1,10 @@
 .process-pane {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 25%;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   background-color: #f0f8ff;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -162,16 +159,11 @@
   box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
 }
 
-/* Add media query for responsive behavior */
+/* Update media queries */
 @media (max-width: 768px) {
-  .process-pane {
-    width: 40%; /* On smaller screens, use 40% width */
-  }
+  /* Remove width override since parent will handle this */
 }
 
 @media (max-width: 576px) {
-  .process-pane {
-    width: 100%; /* On mobile, take full width */
-    position: relative;
-  }
+  /* Remove width override since parent will handle this */
 }
