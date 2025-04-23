@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('./update-db-data-handling/update-db-data-handling.module').then(m => m.UpdateDbDataHandlingModule)
       },
       {
+        path: 'completion',
+        loadChildren: () => import('./update-db-completion/update-db-completion.module').then(m => m.UpdateDbCompletionModule)
+      },
+      {
         path: '',
         redirectTo: 'new-request',
         pathMatch: 'full'

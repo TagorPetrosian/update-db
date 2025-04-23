@@ -1,0 +1,108 @@
+<div class="completion-container">
+  <h2>אישור והשלמת הבקשה</h2>
+
+  <div *ngIf="loading" class="loading-message">
+    <p>טוען נתוני בקשה...</p>
+  </div>
+
+  <div *ngIf="submitSuccess" class="success-message">
+    <h3>הבקשה הושלמה בהצלחה!</h3>
+    <p>מספר הבקשה: {{ requestSummary.requestId }}</p>
+    <p>הבקשה הועברה לאישור סופי ותטופל בהקדם.</p>
+  </div>
+
+  <div *ngIf="!loading && !submitSuccess" class="completion-content">
+    <div class="summary-section">
+      <h3>סיכום הבקשה</h3>
+      <div class="summary-details">
+        <div class="summary-row">
+          <span class="label">מספר בקשה:</span>
+          <span class="value">{{ requestSummary.requestId }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">שם הבקשה:</span>
+          <span class="value">{{ requestSummary.requestName }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">תאריך יצירה:</span>
+          <span class="value">{{ requestSummary.createdDate }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">עדכון אחרון:</span>
+          <span class="value">{{ requestSummary.lastUpdated }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="files-section">
+      <h3>קבצי נתונים</h3>
+      <div class="files-table">
+        <div class="table-header">
+          <div class="col">שם הקובץ</div>
+          <div class="col">גודל</div>
+          <div class="col">סטטוס</div>
+        </div>
+        <div class="table-row" *ngFor="let file of requestSummary.dataFiles">
+          <div class="col">{{ file.name }}</div>
+          <div class="col">{{ file.size }}</div>
+          <div class="col">
+            <span class="status-badge" [ngClass]="{'status-success': file.status === 'processed'}">
+              {{ file.status === 'processed' ? 'עובד' : file.status }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="codebooks-section">
+      <h3>ספרי קודים</h3>
+      <div class="files-table">
+        <div class="table-header">
+          <div class="col">שם ספר הקודים</div>
+          <div class="col">גרסה</div>
+          <div class="col">סטטוס</div>
+        </div>
+        <div class="table-row" *ngFor="let codebook of requestSummary.codebooks">
+          <div class="col">{{ codebook.name }}</div>
+          <div class="col">{{ codebook.version }}</div>
+          <div class="col">
+            <span class="status-badge" [ngClass]="{'status-success': codebook.status === 'approved'}">
+              {{ codebook.status === 'approved' ? 'מאושר' : codebook.status }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="completionForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="comments">הערות נוספות</label>
+        <textarea id="comments" formControlName="comments" rows="4"></textarea>
+      </div>
+
+      <div class="confirmation-section">
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirmComplete" formControlName="confirmComplete">
+          <label for="confirmComplete">אני מאשר/ת שכל הנתונים הנדרשים הועלו ועובדו</label>
+          <div *ngIf="completionForm.get('confirmComplete')?.invalid && completionForm.get('confirmComplete')?.touched" class="error-message">
+            יש לאשר שכל הנתונים הועלו
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirmAccuracy" formControlName="confirmAccuracy">
+          <label for="confirmAccuracy">אני מאשר/ת שכל הנתונים מדויקים ומלאים</label>
+          <div *ngIf="completionForm.get('confirmAccuracy')?.invalid && completionForm.get('confirmAccuracy')?.touched" class="error-message">
+            יש לאשר שכל הנתונים מדויקים
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="submitting || completionForm.invalid">
+          {{ submitting ? 'שולח בקשה...' : 'השלמת הבקשה' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

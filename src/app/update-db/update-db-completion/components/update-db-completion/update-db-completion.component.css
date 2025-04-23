@@ -1,0 +1,186 @@
+.completion-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: #0056b3;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
+.summary-section,
+.files-section,
+.codebooks-section {
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.label {
+  font-weight: bold;
+  width: 120px;
+  color: #555;
+}
+
+.value {
+  flex: 1;
+}
+
+.files-table {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.table-row {
+  display: flex;
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.col {
+  flex: 1;
+  padding: 0 5px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  font-size: 0.85rem;
+}
+
+.status-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.confirmation-section {
+  margin: 25px 0;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-right: 25px;
+}
+
+.form-actions {
+  margin-top: 30px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  padding: 25px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.success-message h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.success-message p {
+  margin-bottom: 10px;
+}
