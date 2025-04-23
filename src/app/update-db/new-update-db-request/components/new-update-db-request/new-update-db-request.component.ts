@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { NewUpdateDbRequestService } from '../../new-update-db-request.service';
+import { ExternalFileRequestComponent } from 'src/app/shared/components/external-file-request/external-file-request.component';
 
 @Component({
   selector: 'app-new-update-db-request',
   templateUrl: './new-update-db-request.component.html',
   styleUrls: ['./new-update-db-request.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, ExternalFileRequestComponent]
 })
 export class NewUpdateDbRequestComponent implements OnInit {
   requestForm: FormGroup;
@@ -49,5 +50,17 @@ export class NewUpdateDbRequestComponent implements OnInit {
           }
         });
     }
+  }
+
+  onAddRequestClick(): void {
+    // Handle adding a new request
+    console.log('Add request button clicked');
+    // Your implementation here
+  }
+
+  onViewPopulationDataClick(): void {
+    // Handle viewing population data
+    console.log('View population data button clicked');
+    // Your implementation here
   }
 }

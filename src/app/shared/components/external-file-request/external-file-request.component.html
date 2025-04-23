@@ -1,0 +1,40 @@
+<div class="form-section">
+  <h3>{{ title }} <span *ngIf="required" class="required">*</span></h3>
+  <p class="description">{{ description }}</p>
+
+  <div class="radio-group" *ngIf="showRadioOptions">
+    <label>
+      <input type="radio"
+             name="externalFiles"
+             value="yes"
+             [checked]="selectedOption === 'yes'"
+             (change)="onOptionChange('yes')">
+      כן
+    </label>
+    <label>
+      <input type="radio"
+             name="externalFiles"
+             value="no"
+             [checked]="selectedOption === 'no'"
+             (change)="onOptionChange('no')">
+      לא
+    </label>
+  </div>
+
+  <div class="checkbox-item" [class.disabled]="disableCheckbox">
+    <input type="checkbox" id="addFiles" [disabled]="disableCheckbox" [(ngModel)]="addFilesChecked">
+    <label for="addFiles">{{ checkboxLabel }}</label>
+  </div>
+
+  <div class="action-buttons" *ngIf="showActionButtons">
+    <button type="button" class="secondary-button" *ngIf="showSecondaryButton" (click)="onSecondaryButtonClick()">
+      <span class="button-icon">{{ secondaryButtonIcon }}</span>
+      {{ secondaryButtonText }}
+    </button>
+
+    <button type="button" class="primary-button" *ngIf="showPrimaryButton" (click)="onPrimaryButtonClick()">
+      <span class="button-icon">{{ primaryButtonIcon }}</span>
+      {{ primaryButtonText }}
+    </button>
+  </div>
+</div>

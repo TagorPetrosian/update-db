@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="form-section">
+    <!-- <div class="form-section">
       <h3>בקשה להוספת קבצים</h3>
       <p class="section-description">יש לפתוח הוספת בקשה לקובץ ולמלא את הפרטים בהתאם</p>
 
@@ -47,7 +47,25 @@
           הוספת בקשה נוספת
         </button>
       </div>
-    </div>
+    </div> -->
+    <app-external-file-request
+  title="בקשה להוספת קבצים"
+  description="יש לפתוח הוספת בקשה לקובץ ולמלא את הפרטים בהתאם"
+  [required]="false"
+  [showRadioOptions]="false"
+  [showCheckbox]="true"
+    [disableCheckbox]="true"
+  checkboxLabel="הוספת קבצים הנמצאים ברשותי"
+      [showActionButtons]="true"
+      [showPrimaryButton]="true"
+      primaryButtonText="הוספת בקשה נוספת"
+      primaryButtonIcon="+"
+      [showSecondaryButton]="true"
+      secondaryButtonText="מספר הדרכים באוכלוסיה הכללית"
+      secondaryButtonIcon="📄"
+      (primaryButtonClick)="onAddRequestClick()"
+      (secondaryButtonClick)="onViewPopulationDataClick()">
+    </app-external-file-request>
 
     <div class="form-section">
       <h3>פירוט וסיבת הבקשה</h3>
@@ -65,3 +83,5 @@
     </div>
   </form>
 </div>
+
+
