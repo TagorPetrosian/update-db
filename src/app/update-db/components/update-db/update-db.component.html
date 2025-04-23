@@ -6,6 +6,9 @@
     alertText="יש למלא את פרטי הבקשה להרחבת מסד לאישור">
   </app-request-header> -->
 
+  <!-- contact info -->
+
+
   <!-- Main Content Area -->
   <div class="main-content-wrapper">
     <!-- Process Pane Container (25% width) - Right side in RTL layout -->
@@ -22,7 +25,10 @@
       <router-outlet></router-outlet>
     </div>
 
-    <!-- Empty space (25% width) - Left side in RTL layout -->
-    <div class="empty-space"></div>
+    <!-- Left Sidebar (25% width) - Left side in RTL layout -->
+    <div class="left-sidebar">
+      <!-- Research Contact Component -->
+      <app-research-contact></app-research-contact>
+    </div>
   </div>
 </div>

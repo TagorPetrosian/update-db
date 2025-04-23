@@ -5,13 +5,14 @@ import { RouterModule } from '@angular/router';
 import { UpdateDbService } from '../../update-db.service';
 import { ProcessPaneComponent } from '../../../shared/components/process-pane/process-pane.component';
 import { RequestHeaderComponent } from '../../../shared/components/request-header/request-header.component';
+import { ResearchContactComponent } from '../../../shared/components/research-contact/research-contact.component';
 
 @Component({
   selector: 'app-update-db',
   templateUrl: './update-db.component.html',
   styleUrls: ['./update-db.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, ProcessPaneComponent, RequestHeaderComponent]
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, ProcessPaneComponent, RequestHeaderComponent, ResearchContactComponent]
 })
 export class UpdateDbComponent implements OnInit {
   updateForm: FormGroup;

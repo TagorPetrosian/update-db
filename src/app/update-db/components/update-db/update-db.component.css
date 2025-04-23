@@ -104,10 +104,20 @@ button:disabled {
   color: #2196F3;
 }
 
+/* Left Sidebar */
+.left-sidebar {
+  width: 25%;
+  padding-right: 20px;
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .empty-space {
     display: none;
+  }
+
+  .left-sidebar {
+    width: 40%;
   }
 
   .main-content {
@@ -125,17 +135,23 @@ button:disabled {
   }
 
   .process-pane-container,
-  .main-content {
+  .main-content,
+  .left-sidebar {
     width: 100%;
     padding: 0;
   }
 
+  .left-sidebar {
+    order: 3; /* Move sidebar to the bottom on mobile */
+    margin-top: 20px;
+  }
+
   .process-pane-container {
-    order: 2; /* Move process pane below content on mobile */
+    order: 2; /* Process pane in the middle on mobile */
     margin-top: 20px;
   }
 
   .main-content {
-    order: 1;
+    order: 1; /* Content at the top on mobile */
   }
 }
