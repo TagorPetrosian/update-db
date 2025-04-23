@@ -1,0 +1,62 @@
+<div class="data-handling-container">
+  <h2>טיפול בקבצי נתונים</h2>
+
+  <div *ngIf="processSuccess" class="success-message">
+    <p>קובץ הנתונים עובד בהצלחה!</p>
+    <button (click)="resetForm()">העלאת קובץ חדש</button>
+  </div>
+
+  <div *ngIf="uploadSuccess && !processSuccess" class="info-message">
+    <p>קובץ הנתונים הועלה בהצלחה!</p>
+    <p>כעת ניתן לעבד את הקובץ.</p>
+    <button (click)="onProcess()" [disabled]="processing">
+      {{ processing ? 'מעבד...' : 'עיבוד הקובץ' }}
+    </button>
+  </div>
+
+  <form *ngIf="!uploadSuccess" [formGroup]="dataForm" (ngSubmit)="onUpload()">
+    <div class="form-group">
+      <label for="datasetName">שם מערך הנתונים</label>
+      <input type="text" id="datasetName" formControlName="datasetName">
+      <div *ngIf="dataForm.get('datasetName')?.invalid && dataForm.get('datasetName')?.touched" class="error-message">
+        שם מערך הנתונים הוא שדה חובה
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="datasetType">סוג הנתונים</label>
+      <select id="datasetType" formControlName="datasetType">
+        <option value="">בחר סוג נתונים</option>
+        <option value="survey">סקר</option>
+        <option value="administrative">נתונים מנהליים</option>
+        <option value="experimental">נתוני ניסוי</option>
+        <option value="other">אחר</option>
+      </select>
+      <div *ngIf="dataForm.get('datasetType')?.invalid && dataForm.get('datasetType')?.touched" class="error-message">
+        יש לבחור סוג נתונים
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">תיאור הנתונים</label>
+      <textarea id="description" formControlName="description" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="fileUpload">העלאת קובץ נתונים</label>
+      <input type="file" id="fileUpload" formControlName="fileUpload">
+      <div *ngIf="dataForm.get('fileUpload')?.invalid && dataForm.get('fileUpload')?.touched" class="error-message">
+        יש לבחור קובץ להעלאה
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="uploading">
+        {{ uploading ? 'מעלה...' : 'העלאת קובץ נתונים' }}
+      </button>
+      <button type="button" (click)="resetForm()">
+        איפוס טופס
+      </button>
+    </div>
+  </form>
+</div>

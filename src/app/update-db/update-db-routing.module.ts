@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./update-db-codebook/update-db-codebook.module').then(m => m.UpdateDbCodebookModule)
       },
       {
+        path: 'data-handling',
+        loadChildren: () => import('./update-db-data-handling/update-db-data-handling.module').then(m => m.UpdateDbDataHandlingModule)
+      },
+      {
         path: '',
         redirectTo: 'new-request',
         pathMatch: 'full'
