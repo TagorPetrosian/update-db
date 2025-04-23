@@ -4,4 +4,28 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: Arial, sans-serif;
+}
+
+/* RTL overrides for common elements */
+input,
+select,
+textarea {
+  text-align: right;
+}
+
+.form-group label {
+  text-align: right;
+}
+
+/* Fix for Angular Material components if you're using them */
+.mat-form-field {
+  text-align: right;
+}
+
+/* Flip icons that should be mirrored in RTL */
+.rtl-flip {
+  transform: scaleX(-1);
 }
