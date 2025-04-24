@@ -36,17 +36,19 @@
     <label for="addFiles">{{ checkboxLabel }}</label>
   </div>
 
-  <div class="action-buttons" *ngIf="showActionButtons">
-    <button
-      type="button"
-      class="secondary-button"
-      *ngIf="showSecondaryButton"
-      (click)="onSecondaryButtonClick()"
-    >
-      <span class="button-icon">{{ secondaryButtonIcon }}</span>
-      {{ secondaryButtonText }}
-    </button>
+  <!-- File request list section -->
+  <div class="file-request-list" *ngIf="showFileList">
+    <!-- <div *ngFor="let item of fileRequestItems; let i = index">{{ item.title }}</div> -->
+    <app-file-request-item
+      *ngFor="let item of fileRequestItems; let i = index"
+      [title]="item.title"
+      [index]="i"
+      (remove)="removeFileRequest(i)">
+    </app-file-request-item>
+  </div>
 
+  <!-- Add new file request button -->
+  <div class="add-request-button-container">
     <button
       type="button"
       class="primary-button"

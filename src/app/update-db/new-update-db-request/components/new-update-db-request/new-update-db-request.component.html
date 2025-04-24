@@ -76,15 +76,12 @@
       [showCheckbox]="true"
       [disableCheckbox]="true"
       checkboxLabel="הוספת קבצים הנמצאים ברשותי"
-      [showActionButtons]="true"
       [showPrimaryButton]="true"
+      [showFileList]="true"
       primaryButtonText="הוספת בקשה נוספת"
       primaryButtonIcon="+"
-      [showSecondaryButton]="true"
-      secondaryButtonText="מספר הדרכים באוכלוסיה הכללית"
-      secondaryButtonIcon="📄"
       (primaryButtonClick)="onAddRequestClick()"
-      (secondaryButtonClick)="onViewPopulationDataClick()"
+      (fileRequestRemoved)="onFileRequestRemoved($event)"
     >
     </app-external-file-request>
 

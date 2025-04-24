@@ -1,13 +1,19 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FileRequestItemComponent } from '../file-request-item/file-request-item.component';
+
+interface FileRequestItem {
+  title: string;
+  // Add other properties as needed
+}
 
 @Component({
   selector: 'app-external-file-request',
   templateUrl: './external-file-request.component.html',
   styleUrls: ['./external-file-request.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, FileRequestItemComponent],
 })
 export class ExternalFileRequestComponent {
   @Input() title: string = 'בקשת קבצים חיצוניים';
@@ -24,20 +30,26 @@ export class ExternalFileRequestComponent {
   // Radio options visibility
   @Input() showRadioOptions: boolean = true;
 
+  // File request list
+  @Input() showFileList: boolean = true;
+  @Input() fileRequestItems: FileRequestItem[] = [
+    { title: 'מספר החרדים באוכלוסיה הכללית' },
+    { title: 'מספר החרדים באוכלוסיה הכללית 2' },
+    { title: 'מספר החרדים באוכלוסיה הכללית 3' },
+    { title: 'מספר החרדים באוכלוסיה הכללית 4' },
+    { title: 'מספר החרדים באוכלוסיה הכללית 5' },
+  ];
+
   // Action buttons properties
-  @Input() showActionButtons: boolean = false;
   @Input() showPrimaryButton: boolean = false;
   @Input() primaryButtonText: string = 'הוספת בקשה נוספת';
   @Input() primaryButtonIcon: string = '+';
-  @Input() showSecondaryButton: boolean = false;
-  @Input() secondaryButtonText: string = 'מספר הדרכים באוכלוסיה הכללית';
-  @Input() secondaryButtonIcon: string = '📄';
 
   // Events
   @Output() optionSelected = new EventEmitter<string>();
   @Output() checkboxChange = new EventEmitter<boolean>();
   @Output() primaryButtonClick = new EventEmitter<void>();
-  @Output() secondaryButtonClick = new EventEmitter<void>();
+  @Output() fileRequestRemoved = new EventEmitter<number>();
 
   onOptionChange(value: string): void {
     this.selectedOption = value;
@@ -49,10 +61,13 @@ export class ExternalFileRequestComponent {
   }
 
   onPrimaryButtonClick(): void {
+    // Add a new file request item
+    this.fileRequestItems.push({ title: 'בקשה חדשה' });
     this.primaryButtonClick.emit();
   }
 
-  onSecondaryButtonClick(): void {
-    this.secondaryButtonClick.emit();
+  removeFileRequest(index: number): void {
+    this.fileRequestItems.splice(index, 1);
+    this.fileRequestRemoved.emit(index);
   }
 }

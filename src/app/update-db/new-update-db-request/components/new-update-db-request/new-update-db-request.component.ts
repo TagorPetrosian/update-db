@@ -3,13 +3,23 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { NewUpdateDbRequestService } from '../../new-update-db-request.service';
 import { ExternalFileRequestComponent } from 'src/app/shared/components/external-file-request/external-file-request.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-new-update-db-request',
   templateUrl: './new-update-db-request.component.html',
   styleUrls: ['./new-update-db-request.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ExternalFileRequestComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ExternalFileRequestComponent,
+    MatExpansionModule,
+    MatIconModule,
+    MatButtonModule
+  ],
 })
 export class NewUpdateDbRequestComponent implements OnInit {
   requestForm: FormGroup;
@@ -61,5 +71,10 @@ export class NewUpdateDbRequestComponent implements OnInit {
     // Handle viewing population data
     console.log('View population data button clicked');
     // Your implementation here
+  }
+
+  onFileRequestRemoved(index: number): void {
+    console.log('File request removed at index:', index);
+    // Additional logic if needed
   }
 }

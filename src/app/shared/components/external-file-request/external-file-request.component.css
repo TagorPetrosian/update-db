@@ -65,9 +65,13 @@ input[type="radio"] {
   color: #444;
 }
 
-.action-buttons {
+.file-request-list {
+  margin-bottom: 16px;
+}
+
+.add-request-button-container {
   display: flex;
-  gap: 12px;
+  justify-content: flex-start;
   margin-top: 16px;
 }
 

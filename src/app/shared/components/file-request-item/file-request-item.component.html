@@ -1,0 +1,25 @@
+<mat-expansion-panel class="file-request-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="panel-icon">📄</span>
+      {{ title }}
+    </mat-panel-title>
+    <mat-panel-description>
+      <button mat-icon-button color="warn" (click)="onRemove(); $event.stopPropagation()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <div class="panel-content">
+    <p>פרטי הבקשה לקובץ יופיעו כאן</p>
+    <div class="form-group">
+      <label>שם הקובץ</label>
+      <input type="text" placeholder="הזן שם קובץ">
+    </div>
+    <div class="form-group">
+      <label>תיאור הקובץ</label>
+      <textarea rows="3" placeholder="הזן תיאור קובץ"></textarea>
+    </div>
+  </div>
+</mat-expansion-panel>
