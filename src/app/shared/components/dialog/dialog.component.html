@@ -1,0 +1,16 @@
+<div class="dialog-container">
+  <div class="dialog-header" *ngIf="data.title || data.showCloseButton">
+    <h2 *ngIf="data.title" class="dialog-title">{{data.title}}</h2>
+    <button *ngIf="data.showCloseButton" mat-icon-button class="close-button" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="dialog-content">
+    <!-- Render component if contentComponent is a component -->
+    <ng-container *ngIf="isComponent(data.contentComponent)" [ngComponentOutlet]="data.contentComponent"></ng-container>
+
+    <!-- Render template if contentComponent is a template -->
+    <ng-container *ngIf="isTemplate(data.contentComponent)" [ngTemplateOutlet]="data.contentComponent"></ng-container>
+  </div>
+</div>

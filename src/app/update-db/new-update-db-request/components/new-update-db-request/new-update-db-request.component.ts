@@ -6,6 +6,8 @@ import { ExternalFileRequestComponent } from 'src/app/shared/components/external
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { SomeComponent } from 'src/app/some-component/some-component.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-update-db-request',
@@ -18,7 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
     ExternalFileRequestComponent,
     MatExpansionModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    SomeComponent,
+    MatDialogModule
   ],
 })
 export class NewUpdateDbRequestComponent implements OnInit {
