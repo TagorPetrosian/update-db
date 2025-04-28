@@ -3,6 +3,12 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { ComponentType } from '@angular/cdk/portal';
 import { DialogComponent, DialogData } from '../components/dialog/dialog.component';
 
+export interface DialogOptions {
+  title: string;
+  content: string;
+  actions: {label: string, action: string}[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +36,12 @@ export class DialogService {
 
   close(): void {
     this.dialog.closeAll();
+  }
+
+  openDialog(options: DialogOptions) {
+    return this.dialog.open(DialogComponent, {
+      width: '500px',
+      data: options
+    });
   }
 }

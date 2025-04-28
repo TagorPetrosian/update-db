@@ -43,6 +43,7 @@
       *ngFor="let item of fileRequestItems; let i = index"
       [title]="item.title"
       [index]="i"
+      [shouldOpenAsDialog]="true"
       (remove)="removeFileRequest(i)">
     </app-file-request-item>
   </div>

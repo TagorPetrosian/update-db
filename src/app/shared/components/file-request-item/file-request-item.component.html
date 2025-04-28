@@ -1,4 +1,4 @@
-<mat-expansion-panel class="file-request-panel">
+<mat-expansion-panel class="file-request-panel" (click)="shouldOpenAsDialog ? onPanelClick($event) : null" [disabled]="shouldOpenAsDialog">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <span class="panel-icon">📄</span>
