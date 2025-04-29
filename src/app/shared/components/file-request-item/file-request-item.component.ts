@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { DialogService } from '../../services/dialog.service';
+import { ExternalFileFormComponent } from '../external-file-form/external-file-form.component';
 
 @Component({
   selector: 'app-file-request-item',
@@ -16,19 +17,24 @@ import { DialogService } from '../../services/dialog.service';
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    ExternalFileFormComponent
   ]
 })
 export class FileRequestItemComponent implements OnInit {
-  @Input() title: string = 'מספר הדרכים באוכלוסיה הכללית';
-  @Input() index: number = 0;
-  @Input() shouldOpenAsDialog: boolean = false;
-  @Output() remove = new EventEmitter<number>();
+  @Input() title: string = '';
+  @Input() fileData: any = {};
+  @Input() shouldOpenAsDialog = false;
+  @Output() remove = new EventEmitter<void>();
+  @Output() validationChange = new EventEmitter<{id: string, valid: boolean, data: any}>();
+
+  // Assuming this component has an ID to identify which file request is reporting status
+  @Input() id: string = '';
 
   constructor(private dialogService: DialogService) {}
 
   onRemove(): void {
-    this.remove.emit(this.index);
+    this.remove.emit();
   }
 
   onPanelClick(event: MouseEvent): void {
@@ -46,6 +52,15 @@ export class FileRequestItemComponent implements OnInit {
         ]
       });
     }
+  }
+
+  onFormStatusChange(status: {valid: boolean, data: any}): void {
+    // Propagate validation status up to parent with this item's ID
+    this.validationChange.emit({
+      id: this.id,
+      valid: status.valid,
+      data: status.data
+    });
   }
 
   ngOnInit(): void {

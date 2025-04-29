@@ -11,15 +11,8 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
 
-  <div class="panel-content">
-    <p>פרטי הבקשה לקובץ יופיעו כאן</p>
-    <div class="form-group">
-      <label>שם הקובץ</label>
-      <input type="text" placeholder="הזן שם קובץ">
-    </div>
-    <div class="form-group">
-      <label>תיאור הקובץ</label>
-      <textarea rows="3" placeholder="הזן תיאור קובץ"></textarea>
-    </div>
-  </div>
+  <app-external-file-form
+    [initialData]="fileData"
+    (formStatusChange)="onFormStatusChange($event)">
+  </app-external-file-form>
 </mat-expansion-panel>

@@ -1,0 +1,26 @@
+<div class="external-file-form">
+  <form [formGroup]="fileForm">
+    <div class="form-group">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>שם הקובץ</mat-label>
+        <input matInput formControlName="fileName" placeholder="הזן שם קובץ">
+        <mat-error *ngIf="fileForm.get('fileName')?.errors?.['required']">
+          שם הקובץ הוא שדה חובה
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>תיאור הקובץ</mat-label>
+        <textarea matInput formControlName="fileDescription" rows="3" placeholder="הזן תיאור קובץ"></textarea>
+        <mat-error *ngIf="fileForm.get('fileDescription')?.errors?.['required']">
+          תיאור הקובץ הוא שדה חובה
+        </mat-error>
+        <mat-error *ngIf="fileForm.get('fileDescription')?.errors?.['minlength']">
+          תיאור הקובץ חייב להכיל לפחות 10 תווים
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>

@@ -38,12 +38,11 @@
 
   <!-- File request list section -->
   <div class="file-request-list" *ngIf="showFileList">
-    <!-- <div *ngFor="let item of fileRequestItems; let i = index">{{ item.title }}</div> -->
     <app-file-request-item
       *ngFor="let item of fileRequestItems; let i = index"
       [title]="item.title"
-      [index]="i"
-      [shouldOpenAsDialog]="true"
+      [shouldOpenAsDialog]="false"
+      [id]="'file-request-' + i"
       (remove)="removeFileRequest(i)">
     </app-file-request-item>
   </div>

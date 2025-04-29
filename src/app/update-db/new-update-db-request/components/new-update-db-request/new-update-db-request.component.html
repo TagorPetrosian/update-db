@@ -106,3 +106,14 @@
     </div>
   </form>
 </div>
+
+
+<button
+  mat-raised-button
+  color="primary"
+  type="submit"
+  [disabled]="requestForm.invalid"
+  (click)="onSubmit()">
+  שלח
+</button>
+

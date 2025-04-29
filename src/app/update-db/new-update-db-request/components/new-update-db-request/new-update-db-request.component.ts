@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 export class NewUpdateDbRequestComponent implements OnInit {
   requestForm: FormGroup;
   isSubmitting = false;
+  fileRequestValidations: {[id: string]: boolean} = {};
 
   constructor(
     private fb: FormBuilder,
@@ -80,5 +81,30 @@ export class NewUpdateDbRequestComponent implements OnInit {
   onFileRequestRemoved(index: number): void {
     console.log('File request removed at index:', index);
     // Additional logic if needed
+  }
+
+  onFileRequestValidationChange(validation: {id: string, valid: boolean, data: any}): void {
+    this.fileRequestValidations[validation.id] = validation.valid;
+
+    // You can also store the data if needed
+    // Update the overall form validity
+    this.updateFormValidity();
+  }
+
+  updateFormValidity(): void {
+    // Check if all file requests are valid
+    const allFileRequestsValid = Object.values(this.fileRequestValidations).every(isValid => isValid);
+
+    // If you have a form control for the entire form, you can use this
+    if (!allFileRequestsValid) {
+      this.requestForm.setErrors({'invalidFileRequests': true});
+    } else {
+      // Clear the specific error (but keep other errors if they exist)
+      const currentErrors = this.requestForm.errors;
+      if (currentErrors) {
+        delete currentErrors['invalidFileRequests'];
+        this.requestForm.setErrors(Object.keys(currentErrors).length ? currentErrors : null);
+      }
+    }
   }
 }
