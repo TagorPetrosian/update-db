@@ -2,10 +2,14 @@ import { Injectable, TemplateRef, Type } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/portal';
 import { DialogComponent, DialogData } from '../components/dialog/dialog.component';
+import { ExternalFileFormComponent } from '../components/external-file-form/external-file-form.component';
+import { FormDialogComponent } from '../components/form-dialog/form-dialog.component';
 
 export interface DialogOptions {
   title: string;
-  content: string;
+  content?: string;
+  component?: ComponentType<any>;
+  componentData?: any;
   actions: {label: string, action: string}[];
 }
 
@@ -26,7 +30,8 @@ export class DialogService {
       data: {
         title: config.title || '',
         showCloseButton: config.showCloseButton !== false,
-        contentComponent: contentComponent
+        contentComponent: contentComponent,
+        componentData: config.componentData
       },
       autoFocus: false
     };
@@ -39,9 +44,28 @@ export class DialogService {
   }
 
   openDialog(options: DialogOptions) {
+    // If a component is provided, use the component-based approach
+    if (options.component) {
+      return this.open(options.component, {
+        title: options.title,
+        componentData: options.componentData
+      });
+    }
+
+    // Otherwise, use the traditional string content approach
     return this.dialog.open(DialogComponent, {
       width: '500px',
       data: options
+    });
+  }
+
+  openFormDialog(title: string, initialData?: any): MatDialogRef<FormDialogComponent> {
+    return this.dialog.open(FormDialogComponent, {
+      width: '500px',
+      data: {
+        title,
+        initialData
+      }
     });
   }
 }

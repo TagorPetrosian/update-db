@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <app-external-file-form
+    [initialData]="data.initialData"
+    (formStatusChange)="formStatus = $event"
+    #formComponent>
+  </app-external-file-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onSubmit()">שלח</button>
+  <button mat-button (click)="onCancel()">בטל</button>
+</mat-dialog-actions>

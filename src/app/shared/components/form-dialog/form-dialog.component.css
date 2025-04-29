@@ -1,0 +1,10 @@
+.mat-dialog-content {
+  min-height: 200px;
+  max-height: 80vh;
+  overflow-x: hidden;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+  padding: 12px 0;
+}
