@@ -39,17 +39,25 @@ export class FileRequestItemComponent implements OnInit {
 
   onPanelClick(event: MouseEvent): void {
     if (this.shouldOpenAsDialog) {
-      // Prevent the default panel expansion behavior when in dialog mode
       event.preventDefault();
       event.stopPropagation();
 
-      // Open dialog with the panel content
-      this.dialogService.openDialog({
-        title: this.title,
-        content: document.querySelector('.panel-content')?.innerHTML || '',
-        actions: [
-          { label: 'סגור', action: 'close' }
-        ]
+      // Open form dialog directly with the file data
+      const dialogRef = this.dialogService.openFormDialog(this.title, this.fileData);
+
+      // Handle dialog actions
+      dialogRef.afterClosed().subscribe(result => {
+        if (result && result.action === 'submit') {
+          // Update the file data with the submitted values
+          this.fileData = result.data;
+          this.onFormStatusChange({
+            valid: true,
+            data: result.data
+          });
+          console.log('Form submitted with data:', result.data);
+        } else {
+          console.log('Dialog canceled');
+        }
       });
     }
   }

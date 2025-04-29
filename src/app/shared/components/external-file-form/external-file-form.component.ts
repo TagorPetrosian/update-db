@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Optional, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +22,15 @@ export class ExternalFileFormComponent implements OnInit {
 
   fileForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    @Optional() @Inject('COMPONENT_DATA') private dialogData: any
+  ) {
+    // If component is created inside dialog, use dialogData
+    if (this.dialogData) {
+      this.initialData = this.dialogData.initialData || {};
+    }
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -49,6 +57,26 @@ export class ExternalFileFormComponent implements OnInit {
     this.formStatusChange.emit({
       valid: this.fileForm.valid,
       data: this.fileForm.value
+    });
+  }
+
+  // Method to submit the form - can be called from dialog action
+  submitForm(): boolean {
+    if (this.fileForm.valid) {
+      // Dialog will close with 'submit' action
+      return true;
+    } else {
+      // Mark all fields as touched to show validation errors
+      this.markFormGroupTouched(this.fileForm);
+      return false;
+    }
+  }
+
+  // Helper to mark all controls as touched
+  private markFormGroupTouched(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(key => {
+      const control = formGroup.get(key);
+      control?.markAsTouched();
     });
   }
 }

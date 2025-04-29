@@ -41,7 +41,7 @@
     <app-file-request-item
       *ngFor="let item of fileRequestItems; let i = index"
       [title]="item.title"
-      [shouldOpenAsDialog]="false"
+      [shouldOpenAsDialog]="true"
       [id]="'file-request-' + i"
       (remove)="removeFileRequest(i)">
     </app-file-request-item>

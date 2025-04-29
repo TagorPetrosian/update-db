@@ -11,8 +11,10 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
 
-  <app-external-file-form
-    [initialData]="fileData"
-    (formStatusChange)="onFormStatusChange($event)">
-  </app-external-file-form>
+  <div class="panel-content">
+    <app-external-file-form
+      [initialData]="fileData"
+      (formStatusChange)="onFormStatusChange($event)">
+    </app-external-file-form>
+  </div>
 </mat-expansion-panel>
